@@ -31,7 +31,7 @@ Using Reduce
 Using the varabile persons
 Create a function called longestName
 that accept an array
-and return the longerst full name
+and return the longest full name
 
 Ex: longestName(persons) => 'Soso Al-Amora'
 */
@@ -91,7 +91,7 @@ Ex: multiFour([1,8,6,4]) => [8,4]
 /*
 8
 Using Filter
-**this question not that easy mybe you will need to use two function inside each other
+**this question not that easy myabe you will need to use two function inside each other
 
 Create a function called containChar
 that accept an array of string and char
