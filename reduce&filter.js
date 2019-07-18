@@ -20,6 +20,10 @@ and return average age of this array
 Ex: avgAge(persons) => 41.2
 */
 
+function avgAge(arr) {
+
+}
+
 
 /*
 2
@@ -57,12 +61,7 @@ Ex: repeatChar("hello world",w) => 1
 
 /*
 5
-Using Reduce
-Create a function called usAndNumberBeetweenUs
-that accept two numbers
-and return array of these two numbers and the numbers between them
-
-Ex: usAndNumberBeetweenUs(2,5) => [2,3,4,5]
+Dont solve it
 */
 
 
@@ -95,7 +94,7 @@ Using Filter
 **this question not that easy mybe you will need to use two function inside each other
 
 Create a function called containChar
-that accept an array of string
+that accept an array of string and char
 and return an array of these string that contain this char
 
 Ex: containChar(["hello","world"],w) => ["world"]
