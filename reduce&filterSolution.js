@@ -21,9 +21,11 @@ Ex: avgAge(persons) => 41.2
 */
 
 function avgAge(arr) {
-
+  var result = arr.reduce(function (acc, elem) {
+    return (acc + elem.age)
+  }, 0)
+  return result / arr.length
 }
-
 
 /*
 2
@@ -35,7 +37,14 @@ and return the longest full name
 
 Ex: longestName(persons) => 'Soso Al-Amora'
 */
-
+function longestName(arr) {
+  return arr.reduce(function (acc, elem) {
+    if (acc.length < (elem.name.first + " " + elem.name.last).length) {
+      acc = elem.name.first + " " + elem.name.last;
+    }
+    return acc;
+  }, "")
+}
 
 /*
 3
@@ -46,7 +55,13 @@ and return max number
 
 Ex: maxNumber([1,2,4,9]) => 9
 */
-
+function maxNumber(arr) {
+  return arr.reduce(function (acc, elem, index) {
+    if (acc < elem)
+      acc = elem;
+    return acc;
+  })
+}
 
 /*
 4
@@ -57,12 +72,23 @@ and return number times that this char repeat inside the string
 
 Ex: repeatChar("hello world","w") => 1
 */
+function repeatChar(str, char) {
+  var arr = str.split("");
+  return arr.reduce(function (count, elem) {
+    if (elem === char) {
+      return count + 1;
+    }
+    return count;
+  }, 0)
+}
 
 
 /*
 5
 Dont solve it
 */
+
+
 
 
 //Filter 6 - 11
@@ -75,6 +101,12 @@ and return an array of even number only
 
 Ex: evenOnly([1,8,6,4]) => [8,6,4]
 */
+function evenOnly(arr) {
+  var result = arr.filter(function (elem) {
+    return elem % 2 === 0
+  })
+  return result;
+}
 
 
 /*
@@ -86,6 +118,12 @@ and return an array of these number that is a mutiply by 4
 
 Ex: multiFour([1,8,6,4]) => [8,4]
 */
+function multiFour(arr) {
+  var result = arr.filter(function (elem) {
+    return elem % 4 === 0
+  })
+  return result;
+}
 
 
 /*
@@ -101,6 +139,15 @@ Ex: containChar(["hello","world"],"w") => ["world"]
 Ex: containChar(["hello","world"],"l") => ["hello","world"]
 */
 
+function containChar(arr, s) {
+  var result = arr.filter(function (elem) {
+    if (elem.includes(s) !== -1) {
+      return elem;
+    }
+  });
+  return result;
+}
+
 
 /*
 9
@@ -112,6 +159,14 @@ and return an array that have the string with odd length in even index
 var strings= ["alex","mercer","madrasa","rashed2","emad","hala"]
 Ex: evenIndexOddLength(strings) => ["madrasa"]
 */
+function evenIndexOddLength(arr) {
+  var arr2 = arr.filter(function (elem, index) {
+    if (index % 2 === 0 && elem.length % 2 !== 0) {
+      return elem;
+    }
+  })
+  return arr2;
+}
 
 
 /*
@@ -124,6 +179,13 @@ and return the person that have age older than this number
 
 Ex: olderThan(persons,56) => [{ name: { first: 'Soso', last: 'Al-Amora' }, age: 67 }]
 */
+function olderThan(arr, n) {
+  return arr.filter(function (elem) {
+    if (elem.age > n) {
+      return elem;
+    }
+  })
+}
 
 /*
 11
@@ -135,90 +197,10 @@ and return the shorter string than the number
 var strings= ["alex","mercer","madrasa","rashed2","emad","hala"]
 Ex: shorterThan(strings,5) => ["alex","emad","hala"]
 */
-
-/*
-Advanced Part {for your benefits}
-
-Dont solve any question here if you didnt finish all the question a bove with your pair
-
-This part you can try it
-You should solve this part solo not with your pair
-
-This part is extra (and there is no help from the trainer) it is good to try it
-*/
-
-//Using filter 12 -15
-
-/*
-12
-Using Filter
-Create a function called longerThan
-that accept an array of strings
-and return the longer string than the number
-
-var strings= ["alex","mercer","madrasa","rashed2","emad","hala"]
-Ex: longerThan(strings,4) => ["mercer","madrasa","rashed2"]
-*/
-
-/*
-13
-Using Filter
-Create a function called onlyOneWord
-that accept an array of strings
-and return only those strings with a single word (no spaces)
-
-var strings= [ 'return', 'phrases', 'with one word' ];
-Ex: onlyOneWord(strings) => [ 'return', 'phrases' ]
-*/
-
-
-
-/*
-14
-Using Filter
-Create a function called positiveRowsOnly
-that accept an array of array of numbers(matrix)
-and return only the rows in the matrix that have all positive integers
-
-var numbers= [[ 1, 10, -100 ], [ 2, -20, 200 ],[ 3, 30,  300 ]];
-Ex: positiveRowsOnly(numbers) => [ 3, 30,  300 ]
-*/
-
-
-/*
-15
-Using Filter
-Create a function called allSameVowels
-that accept an array of strings
-return only those words where all the vowels are the same
-
-var strings= [ 'racecar', 'amalgam', 'oligopoly', 'zoom' ];
-Ex: allSameVowels(strings) =>  [ 'amalgam', 'zoom' ]
-*/
-
-//Using Reduce 16 -
-
-/*
-16
-Using Reduce
-Create a function called objectify
-that accept an array of pairs array
-and turns an array of arrays into an object
-
-var array= [[ 'Thundercats', '80s' ],[ 'The Powerpuff Girls', '90s' ],[ 'Sealab 2021', '00s' ]]
-Ex: objectify(array) =>  { 'Thundercats': '80s', 'The Powerpuff Girls': '90s', 'Sealab 2021': '00s' };
-*/
-
-
-/*
-17
-Using Reduce
-Create a function called luckyNumbers
-that accept an array of number
-and turns an array of arrays into an object
-
-var array= [ 30, 48, 11, 5, 32 ]
-Ex: luckyNumbers(array) => 'Your lucky numbers are: 30, 48, 11, 5, and 32';
-*/
-
-// if you finish the exercises review the material of the week and help your classmate
+function shorterThan(arr, n) {
+  return arr.filter(function (elem) {
+    if (elem.length < n) {
+      return elem;
+    }
+  })
+}
